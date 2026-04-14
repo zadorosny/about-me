@@ -115,6 +115,48 @@ function setupBgm() {
   });
 }
 
+/* ---------------- Clock + Calling Card ---------------- */
+
+const DAYS_PT = ['DOM','SEG','TER','QUA','QUI','SEX','SÁB'];
+
+function tickClock() {
+  const el = document.getElementById('hdr-clock-txt');
+  if (!el) return;
+  const d = new Date();
+  const dow = DAYS_PT[d.getDay()];
+  const hh = String(d.getHours()).padStart(2, '0');
+  const mm = String(d.getMinutes()).padStart(2, '0');
+  el.textContent = `${dow} \u00B7 ${hh}:${mm}`;
+}
+
+function setupCallingCard() {
+  const btn = document.getElementById('hdr-clock');
+  const card = document.getElementById('calling-card');
+  if (!btn || !card) return;
+
+  tickClock();
+  setInterval(tickClock, 1000 * 15);
+
+  const open = () => {
+    card.classList.remove('leaving');
+    card.classList.add('active');
+    card.setAttribute('aria-hidden', 'false');
+  };
+  const close = () => {
+    card.classList.add('leaving');
+    card.addEventListener('animationend', () => {
+      card.classList.remove('active', 'leaving');
+      card.setAttribute('aria-hidden', 'true');
+    }, { once: true });
+  };
+
+  btn.addEventListener('click', open);
+  card.addEventListener('click', close);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && card.classList.contains('active')) close();
+  });
+}
+
 /* ---------------- GitHub repos ---------------- */
 
 const GH_USER = 'zadorosny';
@@ -158,6 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupIntro();
   setupMenu();
   setupBgm();
+  setupCallingCard();
   router();
   window.addEventListener('hashchange', router);
 });
