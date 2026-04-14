@@ -146,7 +146,11 @@ function spawnHeartBurst() {
   const host = document.getElementById('heart-burst');
   if (!host) return;
   const el = document.createElement('span');
-  el.textContent = BURST_PHRASES[Math.floor(Math.random() * BURST_PHRASES.length)];
+  const phrase = BURST_PHRASES[Math.floor(Math.random() * BURST_PHRASES.length)];
+  el.textContent = phrase;
+  if (phrase === 'LET\u2019S CONNECT') {
+    window.open('https://linkedin.com/in/zadorosny', '_blank', 'noopener');
+  }
   const vw = window.innerWidth;
   const vh = window.innerHeight;
   el.style.left = `${30 + Math.random() * 40}vw`;
