@@ -327,107 +327,31 @@ body {
 .hdr-tag:active { transform: skewX(-10deg) translate(1px,1px); box-shadow: 1px 1px 0 var(--red); }
 
 /* =========================================================
-   CALLING CARD
+   HEART BURST — easter egg
    ========================================================= */
-.calling-card {
+.heart-burst {
   position: fixed;
   inset: 0;
-  z-index: 100;
+  z-index: 500;
   pointer-events: none;
-  opacity: 0;
+  overflow: hidden;
 }
-.calling-card.active {
-  pointer-events: auto;
-  opacity: 1;
-  animation: ccIn .4s cubic-bezier(.7,.1,.2,1);
-}
-.calling-card.leaving {
-  animation: ccOut .35s cubic-bezier(.7,.1,.2,1) forwards;
-}
-.cc-bg {
+.heart-burst span {
   position: absolute;
-  inset: 0;
-  background:
-    repeating-linear-gradient(45deg, #000 0 24px, #1a0000 24px 48px),
-    var(--black);
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  animation: ccBgShake .18s infinite;
-}
-.cc-paper {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%) rotate(-3deg);
-  width: min(640px, 92vw);
-  background: var(--white);
-  color: var(--black);
-  padding: 2.5rem 2.2rem 2rem;
-  clip-path: polygon(0 8%, 6% 0, 94% 0, 100% 4%, 100% 94%, 96% 100%, 4% 100%, 0 92%);
-  box-shadow: 14px 14px 0 var(--red), 22px 22px 0 var(--black-2);
-}
-.cc-stamp {
-  display: inline-block;
-  background: var(--red);
-  color: var(--white);
-  padding: .2rem .6rem;
-  font-size: .7rem;
-  letter-spacing: .18em;
-  margin: 0 0 1rem;
-  transform: skewX(-10deg);
-}
-.cc-title {
   font-family: var(--f-display);
   font-style: italic;
   font-weight: 700;
-  font-size: clamp(2.4rem, 6vw, 3.6rem);
   color: var(--red);
-  margin: 0 0 1rem;
-  line-height: .95;
-  letter-spacing: .02em;
+  text-shadow: 3px 3px 0 var(--black), -1px -1px 0 var(--yellow);
+  letter-spacing: .04em;
+  white-space: nowrap;
+  animation: hbFly 1.4s cubic-bezier(.2,.6,.2,1) forwards;
+  will-change: transform, opacity;
 }
-.cc-title i {
-  background: var(--black);
-  color: var(--yellow);
-  padding: 0 .3rem;
-}
-.cc-body {
-  font-family: Georgia, serif;
-  font-size: 1rem;
-  line-height: 1.45;
-  color: var(--black);
-  margin: 0 0 1rem;
-}
-.cc-sign {
-  font-family: var(--f-display);
-  font-style: italic;
-  font-weight: 700;
-  font-size: 1.4rem;
-  color: var(--red);
-  margin: 0 0 .6rem;
-  text-align: right;
-}
-.cc-ps {
-  font-size: .78rem;
-  color: var(--ink);
-  font-style: italic;
-  margin: 0;
-  border-top: 2px dashed var(--black);
-  padding-top: .6rem;
-}
-@keyframes ccIn {
-  0%   { opacity: 0; }
-  40%  { opacity: 1; }
-  100% { opacity: 1; }
-}
-@keyframes ccOut {
-  to { opacity: 0; }
-}
-@keyframes ccBgShake {
-  0%   { transform: translate(0,0); }
-  25%  { transform: translate(-2px,1px); }
-  50%  { transform: translate(1px,-2px); }
-  75%  { transform: translate(-1px,2px); }
-  100% { transform: translate(0,0); }
+@keyframes hbFly {
+  0%   { transform: translate(-50%,-50%) scale(.4) rotate(-12deg); opacity: 0; }
+  18%  { transform: translate(-50%,-50%) scale(1.15) rotate(-8deg); opacity: 1; }
+  100% { transform: translate(-50%,-130%) scale(.9) rotate(-4deg); opacity: 0; }
 }
 @keyframes hdrIn {
   from { transform: translateY(-100%); }

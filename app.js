@@ -115,7 +115,7 @@ function setupBgm() {
   });
 }
 
-/* ---------------- Clock + Calling Card ---------------- */
+/* ---------------- Clock + Heart Burst ---------------- */
 
 const DAYS_PT = ['DOM','SEG','TER','QUA','QUI','SEX','SÁB'];
 
@@ -129,32 +129,39 @@ function tickClock() {
   el.textContent = `${dow} \u00B7 ${hh}:${mm}`;
 }
 
-function setupCallingCard() {
-  const btn = document.getElementById('hdr-clock');
-  const card = document.getElementById('calling-card');
-  if (!btn || !card) return;
+const BURST_PHRASES = [
+  'TAKE YOUR HEART',
+  'TAKE YOUR BACKLOG',
+  'STEAL THE BUG',
+  'NO MORE DEADLOCKS',
+  'UNLOCK THE DATA',
+  'SHOW YOUR TRUE FORM',
+  'LET\u2019S CONNECT',
+  'PING ME',
+  'REACH OUT',
+  'DROP A LINE',
+];
 
+function spawnHeartBurst() {
+  const host = document.getElementById('heart-burst');
+  if (!host) return;
+  const el = document.createElement('span');
+  el.textContent = BURST_PHRASES[Math.floor(Math.random() * BURST_PHRASES.length)];
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  el.style.left = `${30 + Math.random() * 40}vw`;
+  el.style.top = `${35 + Math.random() * 30}vh`;
+  el.style.fontSize = `${Math.min(vw, vh) * 0.09}px`;
+  host.appendChild(el);
+  el.addEventListener('animationend', () => el.remove(), { once: true });
+}
+
+function setupHeaderClock() {
+  const btn = document.getElementById('hdr-clock');
+  if (!btn) return;
   tickClock();
   setInterval(tickClock, 1000 * 15);
-
-  const open = () => {
-    card.classList.remove('leaving');
-    card.classList.add('active');
-    card.setAttribute('aria-hidden', 'false');
-  };
-  const close = () => {
-    card.classList.add('leaving');
-    card.addEventListener('animationend', () => {
-      card.classList.remove('active', 'leaving');
-      card.setAttribute('aria-hidden', 'true');
-    }, { once: true });
-  };
-
-  btn.addEventListener('click', open);
-  card.addEventListener('click', close);
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && card.classList.contains('active')) close();
-  });
+  btn.addEventListener('click', spawnHeartBurst);
 }
 
 /* ---------------- GitHub repos ---------------- */
@@ -200,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupIntro();
   setupMenu();
   setupBgm();
-  setupCallingCard();
+  setupHeaderClock();
   router();
   window.addEventListener('hashchange', router);
 });
