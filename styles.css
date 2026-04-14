@@ -780,40 +780,57 @@ body {
 .proj:hover { transform: translate(-3px,-3px); background: var(--yellow); }
 
 /* =========================================================
-   GITHUB
+   GITHUB PANEL (hero + repos unified)
    ========================================================= */
-.gh-hero {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
+.gh-panel {
+  margin: 2.5rem 0 0;
   background: var(--white);
   color: var(--black);
-  padding: 2rem 2.2rem;
-  margin: 1rem 0 2.5rem;
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.4rem), calc(100% - 1.4rem) 100%, 0 100%);
   box-shadow: 10px 10px 0 var(--red), 16px 16px 0 var(--black-2);
+  padding: 1.6rem 1.8rem 2rem;
 }
-.gh-hero .gh-ico {
-  width: 6rem;
-  height: 6rem;
+.gh-panel-head {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    "ico main btn"
+    "ico stats btn";
+  column-gap: 1.5rem;
+  row-gap: .6rem;
+  align-items: center;
+  padding-bottom: 1.2rem;
+  margin-bottom: 1.4rem;
+  border-bottom: 3px solid var(--black);
+  position: relative;
+}
+.gh-panel-head .gh-ico {
+  grid-area: ico;
+  width: 4.2rem;
+  height: 4.2rem;
   color: var(--black);
   flex-shrink: 0;
 }
-.gh-hero-body { flex: 1; min-width: 0; }
+.gh-head-main { grid-area: main; min-width: 0; }
 .gh-handle {
   font-family: var(--f-display);
   font-style: italic;
   font-weight: 700;
-  font-size: 2.2rem;
-  margin: 0 0 .2rem;
+  font-size: 1.9rem;
+  margin: 0;
   color: var(--red);
   line-height: 1;
 }
-.gh-desc { margin: 0 0 1rem; color: var(--ink); }
+.gh-desc {
+  margin: .25rem 0 0;
+  color: var(--ink);
+  font-size: .9rem;
+}
 .gh-stats {
+  grid-area: stats;
   display: flex;
-  gap: 1.2rem;
-  margin: 0 0 1.2rem;
+  gap: .8rem;
+  margin: 0;
 }
 .gh-stat {
   display: flex;
@@ -821,41 +838,37 @@ body {
   align-items: center;
   background: var(--black);
   color: var(--white);
-  padding: .5rem .9rem;
-  min-width: 64px;
+  padding: .4rem .8rem;
+  min-width: 60px;
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - .4rem), calc(100% - .4rem) 100%, 0 100%);
 }
 .gh-stat-v {
   font-family: var(--f-display);
   font-style: italic;
   font-weight: 700;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: var(--yellow);
   line-height: 1;
 }
 .gh-stat-l {
-  font-size: .62rem;
+  font-size: .58rem;
   letter-spacing: .12em;
-  margin-top: .25rem;
+  margin-top: .2rem;
   color: var(--white);
   opacity: .85;
 }
-
-.gh-subhead {
-  font-family: var(--f-display);
-  font-style: italic;
-  font-weight: 700;
-  font-size: 1.6rem;
-  color: var(--white);
-  margin: 0 0 1rem;
-  padding-left: .6rem;
-  border-left: 6px solid var(--red);
-  letter-spacing: .04em;
+.gh-head-btn {
+  grid-area: btn;
+  align-self: center;
+  font-size: .8rem;
+  padding: .55rem 1rem;
+  white-space: nowrap;
 }
+
 .gh-repos {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
 }
 .gh-loading, .gh-error {
   grid-column: 1/-1;
@@ -864,35 +877,38 @@ body {
   color: var(--ink);
   opacity: .7;
   letter-spacing: .08em;
+  text-align: center;
+  padding: 1rem 0;
 }
 .gh-error { color: var(--red); opacity: 1; }
 .gh-repo {
   display: block;
-  background: var(--white);
-  color: var(--black);
-  padding: 1.1rem 1.2rem 1rem;
+  background: var(--black);
+  color: var(--white);
+  padding: 1rem 1.1rem .9rem;
   text-decoration: none;
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - .9rem), calc(100% - .9rem) 100%, 0 100%);
-  box-shadow: 6px 6px 0 var(--red);
-  transition: transform .15s ease, box-shadow .15s ease;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - .8rem), calc(100% - .8rem) 100%, 0 100%);
+  border-left: 4px solid var(--red);
+  transition: transform .15s ease, background .15s ease;
   position: relative;
 }
 .gh-repo:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 9px 9px 0 var(--red), 12px 12px 0 var(--black-2);
+  background: #1a0000;
 }
 .gh-repo-name {
   font-family: var(--f-display);
   font-style: italic;
   font-weight: 700;
-  font-size: 1.15rem;
-  color: var(--red);
+  font-size: 1.05rem;
+  color: var(--yellow);
   margin: 0 0 .4rem;
   word-break: break-word;
 }
 .gh-repo-desc {
-  font-size: .85rem;
-  color: var(--ink);
+  font-size: .82rem;
+  color: var(--white);
+  opacity: .82;
   margin: 0 0 .8rem;
   min-height: 2.4em;
   line-height: 1.35;
@@ -900,9 +916,9 @@ body {
 .gh-repo-meta {
   display: flex;
   gap: 1rem;
-  font-size: .72rem;
-  color: var(--ink);
-  opacity: .85;
+  font-size: .7rem;
+  color: var(--white);
+  opacity: .75;
   letter-spacing: .04em;
   flex-wrap: wrap;
 }
@@ -910,16 +926,26 @@ body {
 .gh-repo-lang::before {
   content: "";
   display: inline-block;
-  width: .65rem;
-  height: .65rem;
+  width: .6rem;
+  height: .6rem;
   background: var(--red);
   border-radius: 50%;
-  margin-right: .1rem;
+  margin-right: .15rem;
 }
 
-@media (max-width: 680px) {
-  .gh-hero { flex-direction: column; text-align: center; }
-  .gh-stats { justify-content: center; }
+@media (max-width: 760px) {
+  .gh-panel-head {
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "ico main"
+      "stats stats"
+      "btn btn";
+    row-gap: 1rem;
+  }
+  .gh-panel-head .gh-ico { width: 3.4rem; height: 3.4rem; }
+  .gh-handle { font-size: 1.5rem; }
+  .gh-stats { flex-wrap: wrap; }
+  .gh-head-btn { justify-self: start; }
 }
 
 /* =========================================================

@@ -173,21 +173,58 @@ function setupHeaderClock() {
 const GH_USER = 'zadorosny';
 let ghLoaded = false;
 
+function escapeHtml(s) {
+  return (s || '').replace(/[&<>"']/g, (c) => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[c]));
+}
+
 async function loadGithub() {
   if (ghLoaded) return;
   ghLoaded = true;
-  const reposEl = document.getElementById('gh-stat-repos');
-  if (!reposEl) return;
+  const reposEl = document.getElementById('gh-repos');
 
   try {
-    const res = await fetch(`https://api.github.com/users/${GH_USER}`);
-    if (!res.ok) throw new Error('API error');
-    const user = await res.json();
+    const [userRes, repoRes] = await Promise.all([
+      fetch(`https://api.github.com/users/${GH_USER}`),
+      fetch(`https://api.github.com/users/${GH_USER}/repos?per_page=100&sort=updated`),
+    ]);
+    if (!userRes.ok || !repoRes.ok) throw new Error('API error');
+    const user = await userRes.json();
+    const repos = await repoRes.json();
+
     document.getElementById('gh-stat-repos').textContent = user.public_repos ?? '—';
     document.getElementById('gh-stat-followers').textContent = user.followers ?? '—';
     document.getElementById('gh-stat-following').textContent = user.following ?? '—';
+
+    if (!reposEl) return;
+
+    const list = repos
+      .filter(r => !r.fork)
+      .sort((a, b) =>
+        (b.stargazers_count - a.stargazers_count) ||
+        (new Date(b.pushed_at) - new Date(a.pushed_at))
+      );
+
+    if (!list.length) {
+      reposEl.innerHTML = '<p class="gh-loading">NENHUM REPOSITÓRIO PÚBLICO.</p>';
+      return;
+    }
+
+    reposEl.innerHTML = list.map(r => `
+      <a class="gh-repo" href="${escapeHtml(r.html_url)}" target="_blank" rel="noopener">
+        <h4 class="gh-repo-name">${escapeHtml(r.name)}</h4>
+        <p class="gh-repo-desc">${escapeHtml(r.description || 'Sem descrição.')}</p>
+        <div class="gh-repo-meta">
+          ${r.language ? `<span class="gh-repo-lang">${escapeHtml(r.language)}</span>` : ''}
+          <span>&#9733; ${r.stargazers_count}</span>
+          <span>&#8644; ${r.forks_count}</span>
+        </div>
+      </a>
+    `).join('');
   } catch (err) {
     console.error('[GH]', err);
+    if (reposEl) reposEl.innerHTML = '<p class="gh-error">FALHA AO CARREGAR REPOSITÓRIOS.</p>';
     ghLoaded = false;
   }
 }
