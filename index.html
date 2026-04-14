@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Leonardo Zadorosny, Dev / Analista de Dados</title>
+  <meta name="description" content="Dev e Analista de Dados em Goiânia/GO. +10 anos em TI, SQL, Python e sistemas críticos. Currículo e portfólio." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:ital,wght@0,400;0,700;1,700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="bg-noise" aria-hidden="true"></div>
+
+  <div class="intro" id="intro" role="button" tabindex="0" aria-label="Pressione qualquer tecla ou clique para começar">
+    <div class="intro-bg" aria-hidden="true"></div>
+    <div class="intro-stripes" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="intro-content">
+      <p class="intro-eyebrow">ATLUS &middot; PRESENTS</p>
+      <h1 class="intro-title">
+        <span class="it-1"><i>PERSONA</i></span>
+        <span class="it-2">//&nbsp;CV</span>
+      </h1>
+      <p class="intro-name">LEONARDO&nbsp;ZADOROSNY</p>
+      <div class="intro-cta">
+        <span class="intro-diamond">&#9830;</span>
+        <span class="intro-press">PRESS&nbsp;ANY&nbsp;KEY&nbsp;TO&nbsp;START</span>
+        <span class="intro-diamond">&#9830;</span>
+      </div>
+    </div>
+    <div class="intro-corner tl">P.05</div>
+    <div class="intro-corner tr">START</div>
+    <div class="intro-corner bl">©&nbsp;TAKE&nbsp;YOUR&nbsp;HEART</div>
+    <div class="intro-corner br">2026</div>
+  </div>
+
+  <header class="hdr">
+    <div class="hdr-mark">P<span>.</span>05</div>
+    <h1 class="hdr-title"><i>PERSONA</i> <span class="slash">//</span> CV</h1>
+    <div class="hdr-tag">TAKE&nbsp;YOUR&nbsp;HEART</div>
+  </header>
+
+  <nav class="menu" aria-label="Menu principal">
+    <ul class="menu-list">
+      <li><a class="menu-item" href="#sobre" data-target="sobre"><span class="mi-arrow">&#9654;</span><span class="mi-text">SOBRE MIM</span><span class="mi-num">01</span></a></li>
+      <li><a class="menu-item" href="#curriculo" data-target="curriculo"><span class="mi-arrow">&#9654;</span><span class="mi-text">CURRÍCULO</span><span class="mi-num">02</span></a></li>
+      <li><a class="menu-item" href="https://github.com/zadorosny" target="_blank" rel="noopener"><span class="mi-arrow">&#9654;</span><span class="mi-text">GITHUB</span><span class="mi-num">03</span></a></li>
+    </ul>
+    <button class="bgm-btn" id="bgm-btn" type="button" aria-pressed="false" title="Tocar/pausar BGM">
+      <span class="bgm-ico">&#9834;</span><span class="bgm-lbl">BGM</span>
+    </button>
+  </nav>
+
+  <main class="stage">
+    <!-- ============ SOBRE ============ -->
+    <section class="section" id="sobre" data-section="sobre">
+      <div class="sec-head">
+        <span class="sec-num">01</span>
+        <h2 class="sec-title"><i>SOBRE</i> MIM</h2>
+      </div>
+      <div class="sobre-grid">
+        <figure class="avatar-frame">
+          <img src="assets/avatar.jpg" alt="Leonardo Zadorosny" class="avatar-img" />
+        </figure>
+        <div class="sobre-body">
+          <p class="eyebrow">CODE NAME</p>
+          <h3 class="big-name"><i>LEONARDO&nbsp;ZADOROSNY</i></h3>
+          <p class="subtitle">Dev / Analista de Dados</p>
+          <p class="bio">Mais de 10 anos na área de TI, resolvendo problemas com análise crítica e criatividade. Uso dados, regras de negócio, código e contexto para transformar cada problema em solução.</p>
+          <p class="city">📍 Goiânia, Goiás, Brasil</p>
+          <ul class="social">
+            <li><a href="https://linkedin.com/in/zadorosny" target="_blank" rel="noopener">LINKEDIN</a></li>
+            <li><a href="mailto:leozadorosny0@gmail.com">EMAIL</a></li>
+            <li><a href="https://wa.me/5562981247546" target="_blank" rel="noopener">WHATSAPP</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="gh-hero">
+        <svg class="gh-ico" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.93c.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.53-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.74.8 1.18 1.83 1.18 3.08 0 4.41-2.7 5.38-5.27 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+        </svg>
+        <div class="gh-hero-body">
+          <p class="gh-handle">@zadorosny</p>
+          <p class="gh-desc">Experimentos, projetos abertos e códigos do dia a dia.</p>
+          <div class="gh-stats" id="gh-stats" aria-live="polite">
+            <div class="gh-stat"><span class="gh-stat-v" id="gh-stat-repos">—</span><span class="gh-stat-l">REPOS</span></div>
+            <div class="gh-stat"><span class="gh-stat-v" id="gh-stat-followers">—</span><span class="gh-stat-l">FOLLOWERS</span></div>
+            <div class="gh-stat"><span class="gh-stat-v" id="gh-stat-following">—</span><span class="gh-stat-l">FOLLOWING</span></div>
+          </div>
+          <a class="btn-red" href="https://github.com/zadorosny" target="_blank" rel="noopener">ABRIR GITHUB <span>&#8599;</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CURRÍCULO ============ -->
+    <section class="section" id="curriculo" data-section="curriculo">
+      <div class="sec-head">
+        <span class="sec-num">02</span>
+        <h2 class="sec-title"><i>CURRÍCULO</i></h2>
+        <a class="btn-red btn-dl" href="assets/CV_Leonardo_Zadorosny.pdf" download>
+          <span>&#11015; BAIXAR PDF</span>
+        </a>
+      </div>
+
+      <div class="cv-grid">
+        <article class="cv-block">
+          <h3 class="cv-h">EXPERIÊNCIA</h3>
+          <ol class="timeline">
+            <li>
+              <div class="tl-dot"></div>
+              <h4>Analista de Suporte Computacional Pleno</h4>
+              <p class="tl-meta">Secretaria de Estado da Saúde de Goiás (via Memora) &middot; 2023–2025</p>
+              <p>Suporte ao SGH MV (SOUL MV), parametrização de leitos e módulos conforme contratos de gestão, elaboração de consultas SQL para auditorias e indicadores, e mediação entre áreas de negócio e TI.</p>
+            </li>
+            <li>
+              <div class="tl-dot"></div>
+              <h4>Técnico de Suporte</h4>
+              <p class="tl-meta">Secretaria de Estado da Saúde de Goiás (via Indra/Minsait) &middot; 2018–2023</p>
+              <p>Migração e implantação de sistemas operacionais, suporte ao usuário, manutenção de laboratório e suporte técnico em sessões e eventos da SES-GO.</p>
+            </li>
+            <li>
+              <div class="tl-dot"></div>
+              <h4>Assistente de TI</h4>
+              <p class="tl-meta">CEGECON, Centro de Gestão em Educação Continuada &middot; 2017–2018</p>
+              <p>Administração de rede e servidor, manutenção de firewall pfSense e de infraestrutura de rede.</p>
+            </li>
+            <li>
+              <div class="tl-dot"></div>
+              <h4>Estagiário / Técnico de Suporte</h4>
+              <p class="tl-meta">Tribunal de Contas do Estado de Goiás &middot; 2014–2017</p>
+              <p>Suporte ao usuário, assistência a sessões plenárias e suporte técnico em eventos (CAST Informática).</p>
+            </li>
+          </ol>
+        </article>
+
+        <article class="cv-block">
+          <h3 class="cv-h">FORMAÇÃO</h3>
+          <ul class="edu">
+            <li>
+              <h4>Análise e Desenvolvimento de Sistemas</h4>
+              <p class="tl-meta">Estácio &middot; 2026–Presente (em curso)</p>
+            </li>
+            <li>
+              <h4>Bacharelado em Direito</h4>
+              <p class="tl-meta">Universidade Federal de Goiás &middot; 2017–2024 (concluído)</p>
+            </li>
+            <li>
+              <h4>Ciência da Computação</h4>
+              <p class="tl-meta">Universidade Federal de Goiás &middot; 2012</p>
+            </li>
+          </ul>
+        </article>
+
+        <article class="cv-block">
+          <h3 class="cv-h">SKILLS</h3>
+          <ul class="stats">
+            <li><span class="st-name">Excel Avançado</span><span class="st-bar"><i style="--v:94%"></i></span><span class="st-val">94</span></li>
+            <li><span class="st-name">Windows / AD</span><span class="st-bar"><i style="--v:90%"></i></span><span class="st-val">90</span></li>
+            <li><span class="st-name">SQL / Oracle</span><span class="st-bar"><i style="--v:88%"></i></span><span class="st-val">88</span></li>
+            <li><span class="st-name">Python / Pandas</span><span class="st-bar"><i style="--v:86%"></i></span><span class="st-val">86</span></li>
+            <li><span class="st-name">Análise de Dados</span><span class="st-bar"><i style="--v:83%"></i></span><span class="st-val">83</span></li>
+            <li><span class="st-name">SGH MV (SOUL MV)</span><span class="st-bar"><i style="--v:82%"></i></span><span class="st-val">82</span></li>
+            <li><span class="st-name">Linux</span><span class="st-bar"><i style="--v:78%"></i></span><span class="st-val">78</span></li>
+          </ul>
+        </article>
+
+        <article class="cv-block cv-wide">
+          <h3 class="cv-h">CONHECIMENTOS TÉCNICOS</h3>
+          <div class="proj-grid">
+            <a class="proj" href="assets/CV_Leonardo_Zadorosny.pdf" download>
+              <h4>BANCOS DE DADOS &amp; SQL</h4>
+              <p>Oracle (forte), SQL Server. Consultas complexas para relatórios, auditorias, indicadores e apoio à gestão hospitalar.</p>
+            </a>
+            <a class="proj" href="assets/CV_Leonardo_Zadorosny.pdf" download>
+              <h4>ANÁLISE DE DADOS</h4>
+              <p>Excel avançado (IF/IFS, VLOOKUP, INDEX/MATCH, SUMIFS, COUNTIFS, tabelas dinâmicas). Python com Pandas para automação e ETL.</p>
+            </a>
+            <a class="proj" href="assets/CV_Leonardo_Zadorosny.pdf" download>
+              <h4>SAÚDE DIGITAL &amp; INFRA</h4>
+              <p>SGH MV / SOUL MV, SUS, RNDS, PNIIS, FHIR, ESD28. Windows Server + Active Directory e Linux. Inglês avançado.</p>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="ftr">
+    <div class="ftr-marquee">
+      <span>TAKE YOUR HEART &nbsp;&#9830;&nbsp; LEONARDO ZADOROSNY &nbsp;&#9830;&nbsp; 2026 &nbsp;&#9830;&nbsp;</span>
+      <span>TAKE YOUR HEART &nbsp;&#9830;&nbsp; LEONARDO ZADOROSNY &nbsp;&#9830;&nbsp; 2026 &nbsp;&#9830;&nbsp;</span>
+    </div>
+  </footer>
+
+  <audio id="bgm" preload="auto" loop>
+    <source src="assets/bgm.mp3" type="audio/mpeg" />
+  </audio>
+</body>
+</html>

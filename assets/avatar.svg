@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Avatar placeholder">
+  <defs>
+    <pattern id="stripes" patternUnits="userSpaceOnUse" width="14" height="14" patternTransform="rotate(35)">
+      <rect width="14" height="14" fill="#0a0a0a"/>
+      <rect width="7" height="14" fill="#141414"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="400" fill="url(#stripes)"/>
+  <polygon points="0,0 400,0 400,60 0,120" fill="#e60012"/>
+  <polygon points="0,400 400,400 400,320 0,360" fill="#e60012"/>
+  <circle cx="200" cy="175" r="72" fill="#0a0a0a" stroke="#ffd400" stroke-width="4"/>
+  <rect x="118" y="250" width="164" height="90" fill="#0a0a0a" stroke="#ffd400" stroke-width="4"/>
+  <text x="200" y="205" text-anchor="middle" font-family="Impact, sans-serif" font-size="60" fill="#e60012" font-style="italic">?</text>
+  <text x="200" y="385" text-anchor="middle" font-family="Impact, sans-serif" font-size="18" fill="#f5f5f5" letter-spacing="3">#TODO YOUR PHOTO</text>
+</svg>
